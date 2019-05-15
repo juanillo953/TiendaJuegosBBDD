@@ -40,7 +40,7 @@ public class Main {
 
 			try {
 				juegos.abrirConexion();
-				agregado=juegos.agregaJuego(juego);
+				agregado=juegos.borraJuego(juego);
 				juegos.cerrarConexion();
 
 			} catch (ClassNotFoundException | SQLException e) {
@@ -49,10 +49,10 @@ public class Main {
 			}
 			
 		if(agregado) {
-			System.out.println("Agregado");
+			System.out.println("Borrado");
 		}
 		else {
-			System.out.println("No agregado");
+			System.out.println("No borrado");
 		}
 	}
 

@@ -104,4 +104,18 @@ public class JuegosController {
 		rs.insertRow();
 		return true;
 	}
+	public boolean borraJuego(Juego juego) throws SQLException {
+		String codigobarras="";
+		codigobarras=juego.getCodigobarras();
+		String sql="select * from juegos where codigobarras ='"+codigobarras+"'";
+		st=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+		rs=st.executeQuery(sql);
+		rs.next();
+		rs.deleteRow();
+		rs.close();
+		rs=null;
+		st=null;
+		
+		return true;
+	}
 }
