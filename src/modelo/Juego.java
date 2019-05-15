@@ -90,7 +90,7 @@ public class Juego {
 		this.fechalanzamiento = fechalanzamiento;
 	}
 	
-	private boolean codigoDeBarrasCorrecto(String codigobarras) {
+	private boolean codigoDeBarrasCorrecto(String codigobarras) {//Comprueba si el codigo de barras es correcto
 		boolean impar=true;
 		int acumulador=0;
 		String numeroAComprobar=codigobarras.substring(0, codigobarras.length()-1);

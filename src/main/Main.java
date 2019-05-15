@@ -35,6 +35,7 @@ public class Main {
 		JuegosController juegos=new JuegosController();
 		try {
 			juegos.abrirConexion();
+			juegos.cerrarConexion();
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();

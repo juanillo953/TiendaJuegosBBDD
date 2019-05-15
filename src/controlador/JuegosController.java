@@ -2,6 +2,7 @@ package controlador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -14,6 +15,7 @@ public class JuegosController {
 	private static String userAndPass="root";
 	private Connection cn;
 	private Statement st;
+	private ResultSet rs;
 	private List<Juego> juegos;
 	public JuegosController() {
 		super();
@@ -23,5 +25,17 @@ public class JuegosController {
 		Class.forName(drv);
 		cn= DriverManager.getConnection(db, userAndPass, "");
 		System.out.println("La conexion se realizo con éxito");
+	}
+	public void cerrarConexion() throws SQLException {
+		if(rs!=null) {
+			rs.close();
+		}
+		if(st!=null) {
+			st.close();
+		}
+		if(cn!=null) {
+			cn.close();
+		}
+		System.out.println("Conexion cerrada");
 	}
 }
