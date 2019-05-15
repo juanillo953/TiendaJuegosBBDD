@@ -107,6 +107,9 @@ public class Juego {
 		}
 		acumulador=acumulador%10;
 		acumulador=10-acumulador;
+		if(acumulador==10) {
+			acumulador=0;
+		}
 		if(acumulador==Integer.parseInt(digitoControl)) {
 			return true;
 		}
@@ -114,5 +117,10 @@ public class Juego {
 			return false;
 		}
 	}
+	@Override
+	public String toString() {
+		return titulo+";"+estudio+";"+codigobarras+";"+genero+";"+precio+";"+fechalanzamiento;
+	}
+	
 }
 
