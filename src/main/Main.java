@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.EventQueue;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,11 +13,12 @@ import excepciones.CampoVacioException;
 import excepciones.CodigoDeBarrasException;
 import excepciones.PrecioException;
 import modelo.Juego;
+import vista.FrmJuegos;
 
 public class Main {
 
 	public static void main(String[] args) {
-		List<Juego> juegos2=new ArrayList<Juego>();
+		/*List<Juego> juegos2=new ArrayList<Juego>();
 		Juego juego=null;
 		boolean agregado=false;
 		Date fecha=null;
@@ -54,6 +56,16 @@ public class Main {
 		else {
 			System.out.println("No borrado");
 		}
+	}*/
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrmJuegos frame = new FrmJuegos();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-
 }

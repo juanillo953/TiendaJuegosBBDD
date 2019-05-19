@@ -118,4 +118,26 @@ public class JuegosController {
 		
 		return true;
 	}
+	public boolean modificado(Juego juego) throws SQLException {
+		String codigobarras=juego.getCodigobarras();
+		String campo="codigobarras";
+		String sql ="select * from juegos where "+campo+" = '"+codigobarras+"'";
+		st=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+		rs=st.executeQuery(sql);
+		rs.next();
+		String titulo=juego.getTitulo();
+		String estudio=juego.getEstudio();
+		java.sql.Date fechalanzamiento=juego.getFechalanzamiento();
+		int precio=juego.getPrecio();
+		String genero=juego.getGenero();
+		
+		rs.updateString("titulo", titulo);
+		rs.updateString("estudio", estudio);
+		rs.updateDate("fechalanzamiento", fechalanzamiento);
+		rs.updateString("codigobarras", codigobarras);
+		rs.updateInt("precio", precio);
+		rs.updateString("genero", genero);
+		rs.updateRow();
+		return true;
+	}
 }

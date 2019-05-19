@@ -122,5 +122,10 @@ public class Juego {
 		return titulo+";"+estudio+";"+codigobarras+";"+genero+";"+precio+";"+fechalanzamiento;
 	}
 	
+	public String[] toStringGrid() {
+		String[]grid= {titulo,estudio,codigobarras,genero,Integer.toString(precio),fechalanzamiento.toString()};
+		return grid;
+	}
+	
 }
 
